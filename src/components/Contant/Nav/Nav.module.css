@@ -1,0 +1,33 @@
+.nav {
+  width: 250px;
+  text-align: center;
+}
+.items {
+  margin: 0;
+  list-style-type: none;
+  padding: 0;
+  border-top: 1px solid #50565D;
+}
+.item {
+  background-color: #2A343E;
+}
+.link {
+  border-bottom: 1px solid #50565D;
+  border-left: 1px solid #50565D;
+}
+.link, .active {
+  display: block;
+  padding: 10px 10px;
+  text-decoration: none;
+  color: #fff;
+}
+.link:hover, .active:hover {
+  background-color: #306A9D;
+  border-bottom: 1px solid #306A9D;
+  border-left: 1px solid #306A9D;
+}
+.active {
+  background-color: #306A9D;
+  border-bottom: 1px solid #306A9D;
+  border-right: 3px solid #1D8CEB;
+}

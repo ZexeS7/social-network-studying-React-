@@ -1,0 +1,10 @@
+.items {
+  background-color: #1A1D25;
+}
+.item {
+  margin: 10px 20px;
+  background-color: #232631;
+  padding: 10px 20px;
+  border-radius: 20px;
+  color: #fff;
+}

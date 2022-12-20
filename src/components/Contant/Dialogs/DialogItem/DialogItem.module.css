@@ -1,0 +1,16 @@
+.items {
+  background-color: #232631;
+}
+.item {
+  margin: 10px 10px;
+  padding: 10px 20px;
+  color: #5E6474;
+  text-align: center;
+}
+.item:hover {
+  margin: 10px 10px;
+  background-color: #323645;
+  padding: 10px 20px;
+  border-radius: 20px;
+  color: #fff;
+}
