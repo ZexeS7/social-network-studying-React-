@@ -1,0 +1,14 @@
+.body {
+  width: 900px;
+  background-color: #1A1D25;
+  color: #fff;
+}
+.page_active {
+  margin: 0 5px;
+  color: #fff;
+  font-weight: 700;
+}
+.number_page {
+  max-width: 300px;
+  overflow: hidden;
+}

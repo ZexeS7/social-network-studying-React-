@@ -24,7 +24,7 @@ function Nav() {
             to="/dialogs">Dialogs</NavLink>
         </li>
         <li className={nav.item}>
-          <NavLink className={({ isActive }) => isActive ? nav.active : nav.link} to="/">Films</NavLink>
+          <NavLink className={({ isActive }) => isActive ? nav.active : nav.link} to="/users">Users</NavLink>
         </li>
         <li className={nav.item}>
           <NavLink className={({ isActive }) => isActive ? nav.active : nav.link} to="/">About</NavLink>

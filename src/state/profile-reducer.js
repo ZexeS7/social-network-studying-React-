@@ -16,10 +16,15 @@ function profileReducer(state = initialState, action) {
       id: state.postsData.length + 1,
       post: state.newText
     }
-    state.postsData.push(newPost)
-    state.newText = ''
+    let stateCopy = {...state}
+    stateCopy.postsData = [...state.postsData]
+    stateCopy.postsData.push(newPost)
+    stateCopy.newText = ''
+    return stateCopy
   } else if (action.type === CHANGE_NEW_POST_TEXT) {
-    state.newText = action.text
+    let stateCopy = {...state}
+    stateCopy.newText = action.text
+    return stateCopy
   }
   return state
 }

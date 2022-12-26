@@ -23,14 +23,19 @@ let initialState = {
 
 function dialogsReduser(state = initialState, action) {
   if (action.type === CHANGE_NEW_MESSAGE_TEXT) {
-    state.newMessageText = action.newMessageText
+    let stateCopy = {...state}
+    stateCopy.newMessageText = action.newMessageText
+    return stateCopy
   } else if (action.type === ADD_MESSAGE) {
     let newMessage = {
       id: state.messagesData.length + 1,
       message: state.newMessageText
     }
-    state.messagesData.push(newMessage)
-    state.newMessageText = ''
+    let stateCopy = {...state}
+    stateCopy.messagesData = [...stateCopy.messagesData]
+    stateCopy.messagesData.push(newMessage)
+    stateCopy.newMessageText = ''
+    return stateCopy
   }
   return state
 }

@@ -11,3 +11,9 @@
   border-right: none;
   padding: 5px;
 }
+.users_items {
+  background-color: #232631;
+}
+.messages_items {
+  background-color: #1A1D25;
+}
