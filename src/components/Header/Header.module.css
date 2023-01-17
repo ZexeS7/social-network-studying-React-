@@ -2,6 +2,10 @@
   border: 1px solid #2874A6;
   background-color: #ADEFFF;
 }
+.header_items {
+  display: flex;
+  justify-content: space-between;
+}
 .logo_img {
   max-width: 50px;
 }

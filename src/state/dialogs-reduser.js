@@ -41,9 +41,9 @@ function dialogsReduser(state = initialState, action) {
 }
 
 export default dialogsReduser
-export function addMessageActionCreator() {
+export function addMessage() {
   return {type: ADD_MESSAGE}
 }
-export function changeNewMessageTextActionCreator(newMessageText) {
+export function changeMessageText(newMessageText) {
   return {type: CHANGE_NEW_MESSAGE_TEXT, newMessageText: newMessageText}
 }

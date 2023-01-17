@@ -20,6 +20,7 @@
   padding: 10px 10px;
   text-decoration: none;
   color: #fff;
+  transition: all .5s;
 }
 .link:hover, .active:hover {
   background-color: #306A9D;

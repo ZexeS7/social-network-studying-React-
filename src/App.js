@@ -2,13 +2,13 @@ import { BrowserRouter } from 'react-router-dom';
 import './App.css';
 import Contant from './components/Contant/Contant';
 import Footer from './components/Footer/Footer';
-import Header from './components/Header/Header';
+import HeaderContainer from './components/Header/HeaderContainer';
 
 function App(props) {
   return (
     <div className="App">
       <BrowserRouter>
-        <Header />
+        <HeaderContainer />
         <Contant store={props.store} state={props.state} dispatch={props.dispatch}/>
         <Footer />
         </BrowserRouter>

@@ -1,13 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
-import { followAC, setUsersAC, unfollowAC, setTotalUsersCountAC, setCurrentPageAC } from "../../../state/users-reducer";
+import { follow, unfollow, setCurrentPage, toggleFollowingProgress, getUsers } from "../../../state/users-reducer";
 import Users from "./Users";
-import axios from "axios";
 
 class UsersC extends React.Component {
   componentDidMount() {
-    axios.get(`https://social-network.samuraijs.com/api/1.0/users?count=${this.props.pageSize}&page=${this.props.currentPage}`)
-    .then(respons => {this.props.setUsers(respons.data.items); this.props.setTotalUsersCount(respons.data.totalCount)})
+    this.props.getUsers(this.props.pageSize, this.props.currentPage)
   }
   onFollow  = (userId) => {
     return this.props.follow(userId)
@@ -16,9 +14,8 @@ class UsersC extends React.Component {
     return this.props.unfollow(userId)
   }
   onPageNumber = (numberPage) => {
-    axios.get(`https://social-network.samuraijs.com/api/1.0/users?count=${this.props.pageSize}&page=${numberPage}`)
-    .then(respons => {this.props.setUsers(respons.data.items)})
-    this.props.setCurentPage(numberPage)
+    this.props.getUsers(this.props.pageSize, numberPage)
+    this.props.setCurrentPage(numberPage)
   }
   render() {
     return (
@@ -29,7 +26,9 @@ class UsersC extends React.Component {
         pageSize={this.props.pageSize} 
         currentPage={this.props.currentPage}
         onFollow={this.onFollow}
-        onUnfollow={this.onUnfollow} />
+        onUnfollow={this.onUnfollow}
+        isFetching={this.props.isFetching}
+        followingInProgress={this.props.followingInProgress} />
     )
   }
 }
@@ -39,27 +38,38 @@ function mapStateToProps(state) {
     users: state.usersPage.usersData,
     pageSize: state.usersPage.pageSize,
     totalUsersCount: state.usersPage.totalUsersCount,
-    currentPage: state.usersPage.currentPage
+    currentPage: state.usersPage.currentPage,
+    isFetching: state.usersPage.isFetching,
+    followingInProgress: state.usersPage.followingInProgress
   }
 }
-function mapDispatchToProps(dispatch) {
-  return {
-    follow: (userId) => {
-      dispatch(followAC(userId))
-    },
-    unfollow: (userId) => {
-      dispatch(unfollowAC(userId))
-    },
-    setUsers: (users) => {
-      dispatch(setUsersAC(users))
-    },
-    setTotalUsersCount: (totalUsers) => {
-      dispatch(setTotalUsersCountAC(totalUsers))
-    },
-    setCurentPage: (numberPage) => {
-      dispatch(setCurrentPageAC(numberPage))
-    }
-  }
-}
+// function mapDispatchToProps(dispatch) {
+//   return {
+//     follow: (userId) => {
+//       dispatch(followAC(userId))
+//     },
+//     unfollow: (userId) => {
+//       dispatch(unfollowAC(userId))
+//     },
+//     setUsers: (users) => {
+//       dispatch(setUsersAC(users))
+//     },
+//     setTotalUsersCount: (totalUsers) => {
+//       dispatch(setTotalUsersCountAC(totalUsers))
+//     },
+//     setCurentPage: (numberPage) => {
+//       dispatch(setCurrentPageAC(numberPage))
+//     },
+//     toggleIsFetching: (isFetching) => {
+//       dispatch(setIsFetchingAC(isFetching))
+//     }
+//   }
+// }
 
-export default connect(mapStateToProps, mapDispatchToProps)(UsersC)
+export default connect(mapStateToProps, {
+      follow,
+      unfollow,
+      setCurrentPage,
+      toggleFollowingProgress,
+      getUsers
+    })(UsersC)
