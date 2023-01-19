@@ -1,0 +1,13 @@
+.textarea {
+  height: 30px;
+  width: 100%;
+  margin: 5px;
+  border: 1px solid #5C6069;
+  border-radius: 10px;
+  background-color: #212733;
+  color: #fff;
+  padding: 5px;
+}
+.error {
+  border: 1px solid red;
+}

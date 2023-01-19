@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import Dialogs from "./Dialogs";
-import { addMessage, changeMessageText } from "../../../state/dialogs-reduser";
+import { addMessage } from "../../../state/dialogs-reduser";
 
 function mapStateToProps(state) {
   return {
@@ -11,6 +11,6 @@ function mapStateToProps(state) {
   }
 }
 
-const DialogsContainer = connect(mapStateToProps, { addMessage, changeMessageText })(Dialogs)
+const DialogsContainer = connect(mapStateToProps, { addMessage })(Dialogs)
 
 export default DialogsContainer;

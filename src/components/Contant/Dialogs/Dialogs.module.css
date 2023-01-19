@@ -17,3 +17,27 @@
 .messages_items {
   background-color: #1A1D25;
 }
+.form {
+  display: flex;
+  border-top: 1px solid #393C4B;
+}
+.textarea {
+  height: 30px;
+  width: 100%;
+  margin: 10px;
+  border: 1px solid #5C6069;
+  border-radius: 10px;
+  background-color: #212733;
+  color: #fff;
+  padding: 5px;
+}
+.btn {
+  margin: 10px;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  width: 100px;
+  cursor: pointer;
+  color: #fff;
+  background-color: #387DFF;
+}

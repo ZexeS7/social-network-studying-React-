@@ -4,11 +4,18 @@
 .add_post {
   border-radius: 20px 20px 0 0;
   padding: 10px;
-  background-color: #232631;
+  background-color: #191C21;
 }
-.textarea {
-  margin-left: 20px;
-  border-radius: 7px;
+.btn {
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
   padding: 5px;
-  height: 30px;
+  width: 100px;
+  cursor: pointer;
+  color: #fff;
+  background-color: #387DFF;
+}
+.form {
+  display: flex;
 }

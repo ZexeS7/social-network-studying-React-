@@ -1,5 +1,4 @@
 const ADD_MESSAGE = 'ADD-MESSAGE'
-const CHANGE_NEW_MESSAGE_TEXT = 'CHANGE-NEW-MESSAGE-TEXT'
 
 let initialState = {
   messagesData: [
@@ -18,32 +17,23 @@ let initialState = {
     {id:2, name:"Evsey"},
     {id:3, name:"Pavel"}
   ],
-  newMessageText: ''
 }
 
 function dialogsReduser(state = initialState, action) {
-  if (action.type === CHANGE_NEW_MESSAGE_TEXT) {
-    let stateCopy = {...state}
-    stateCopy.newMessageText = action.newMessageText
-    return stateCopy
-  } else if (action.type === ADD_MESSAGE) {
+  if (action.type === ADD_MESSAGE) {
     let newMessage = {
       id: state.messagesData.length + 1,
-      message: state.newMessageText
+      message: action.newMessageText
     }
     let stateCopy = {...state}
     stateCopy.messagesData = [...stateCopy.messagesData]
     stateCopy.messagesData.push(newMessage)
-    stateCopy.newMessageText = ''
     return stateCopy
   }
   return state
 }
 
 export default dialogsReduser
-export function addMessage() {
-  return {type: ADD_MESSAGE}
-}
-export function changeMessageText(newMessageText) {
-  return {type: CHANGE_NEW_MESSAGE_TEXT, newMessageText: newMessageText}
+export function addMessage(newMessageText) {
+  return {type: ADD_MESSAGE, newMessageText}
 }

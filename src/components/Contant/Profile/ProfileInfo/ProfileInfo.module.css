@@ -10,12 +10,12 @@
 }
 .info {
   border-radius: 0 0 20px 20px;
-  background-color: #232631;
+  background-color: #191C21;
   height: 100px;
   position: relative;
 }
 .profile_ava {
-  border: 5px solid #232631;
+  border: 5px solid #191C21;
   width: 150px;
   height: 150px;
   object-fit: cover;

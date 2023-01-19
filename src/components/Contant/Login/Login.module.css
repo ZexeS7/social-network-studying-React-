@@ -1,0 +1,27 @@
+.body{
+  background-color: #1A1D25;
+  width: 100%;
+  padding: 30px;
+  color: #fff;
+}
+.form{
+  display: flex;
+  flex-direction: column;
+}
+.input {
+  margin: 5px;
+  height: 25px;
+  border: 1px solid #5C6069;
+  border-radius: 5px;
+  background-color: transparent;
+  color: #fff;
+}
+.btn {
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  width: 100px;
+  cursor: pointer;
+  color: #fff;
+  background-color: #387DFF;
+}
