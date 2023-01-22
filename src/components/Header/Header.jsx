@@ -10,8 +10,10 @@ function Header(props) {
           <div className='logo'>
             <img className={header.logo_img} src='https://www.pngarts.com/files/3/Logo-PNG-Transparent-Image.png' alt='logo'/>
           </div>
-          <div className='auth'>
-            {props.isAuth ? props.login : <Link to={'/login'}>Login</Link>}
+          <div className={header.login}>
+            {props.isAuth 
+              ? <div className={header.login_item}> {props.login} <button onClick={props.logout}>Logout</button> </div> 
+              : <Link to={'/login'}>Login</Link>}
           </div>
         </div>
       </div>

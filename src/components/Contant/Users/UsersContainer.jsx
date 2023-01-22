@@ -1,11 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
-import { follow, unfollow, setCurrentPage, toggleFollowingProgress, getUsers } from "../../../state/users-reducer";
+import { follow, unfollow, setCurrentPage, toggleFollowingProgress, requestUsers } from "../../../state/users-reducer";
+import { getCurrentPage, getFollowingInProgress, getIsFetching, getPageSize, getTotalUsersCount, getUsers } from "../../../state/users-selectors";
 import Users from "./Users";
 
 class UsersC extends React.Component {
   componentDidMount() {
-    this.props.getUsers(this.props.pageSize, this.props.currentPage)
+    this.props.requestUsers(this.props.pageSize, this.props.currentPage)
   }
   onFollow  = (userId) => {
     return this.props.follow(userId)
@@ -14,7 +15,7 @@ class UsersC extends React.Component {
     return this.props.unfollow(userId)
   }
   onPageNumber = (numberPage) => {
-    this.props.getUsers(this.props.pageSize, numberPage)
+    this.props.requestUsers(this.props.pageSize, numberPage)
     this.props.setCurrentPage(numberPage)
   }
   render() {
@@ -35,12 +36,12 @@ class UsersC extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    users: state.usersPage.usersData,
-    pageSize: state.usersPage.pageSize,
-    totalUsersCount: state.usersPage.totalUsersCount,
-    currentPage: state.usersPage.currentPage,
-    isFetching: state.usersPage.isFetching,
-    followingInProgress: state.usersPage.followingInProgress
+    users: getUsers(state),
+    pageSize: getPageSize(state),
+    totalUsersCount: getTotalUsersCount(state),
+    currentPage: getCurrentPage(state),
+    isFetching: getIsFetching(state),
+    followingInProgress: getFollowingInProgress(state)
   }
 }
 // function mapDispatchToProps(dispatch) {
@@ -71,5 +72,5 @@ export default connect(mapStateToProps, {
       unfollow,
       setCurrentPage,
       toggleFollowingProgress,
-      getUsers
+      requestUsers
     })(UsersC)

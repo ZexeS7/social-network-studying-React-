@@ -9,3 +9,11 @@
 .logo_img {
   max-width: 50px;
 }
+.login {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+.login_item {
+  font-weight: 700;
+}
